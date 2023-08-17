@@ -1,1 +1,73 @@
-branching is rly easy
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+class Stack {
+private:
+
+	static const int MaxSize = 100;
+	int TopIndex;
+	int arr[MaxSize];
+
+public:
+	
+	Stack() {
+		TopIndex = -1;
+
+	}
+	void push(int value)
+	{
+		if (TopIndex <= MaxSize-1)
+		{
+			arr[++TopIndex] = value;
+		}
+		else
+		{
+			cout << " Stack is full " << endl;
+		}
+	}
+	void pop()
+	{
+		if (TopIndex >= 0)
+		{
+			TopIndex--;
+		}
+		else
+		{
+			cout << "Stack is empty " << endl;
+		}
+	}
+	int top()
+	{
+		if (TopIndex >= 0)
+		{
+			return arr[TopIndex];
+		}
+		else
+		{
+			cout << "Stack is empty " << endl;
+			return -1;
+		}
+	}
+	int size()
+	{
+		return TopIndex + 1;
+	}
+};
+ 
+int main()
+{
+	Stack stk;
+	/*stk.push(18);
+	stk.push(7);
+	*/
+	cout << stk.top() << endl;
+
+	stk.pop();
+
+	cout << stk.top() << endl;
+
+	cout << stk.size() << endl;
+
+}
+
